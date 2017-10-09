@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `practica01` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-USE `test`;
+USE `practica01`;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
