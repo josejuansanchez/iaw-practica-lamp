@@ -15,8 +15,6 @@ if(isset($_POST['Submit'])) {
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
 
-	$name = utf8_encode($name);	
-
 	// checking empty fields
 	if(empty($name) || empty($age) || empty($email)) {
 				
