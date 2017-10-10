@@ -1,7 +1,10 @@
-# iaw-practica-01
-Práctica 01 del módulo IAW (Implantación de Aplicaciones Web).
+# iaw-practica-lamp
 
-Esta práctica consiste en un sistema muy básico para añadir, editar, borrar y ver registros de una base de datos con [PHP][1] y [MySQL][2].
+Módulo: IAW - Implantación de Aplicaciones Web  
+Ciclo: CFGS Administración de Sistemas Informáticos en Red  
+IES Celia Viñas - Curso 2017/2018
+
+Esta práctica consiste en un sistema **muy básico** para añadir, editar, borrar y ver registros de una base de datos, haciendo uso de [PHP][1] y [MySQL][2].
 
 ## Créditos
 
