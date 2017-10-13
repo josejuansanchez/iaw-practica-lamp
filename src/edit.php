@@ -26,6 +26,8 @@ if(isset($_POST['update'])) {
 		$stmt = mysqli_prepare($mysqli, "UPDATE users SET name=?,age=?,email=? WHERE id=?");
 		mysqli_stmt_bind_param($stmt, "sisi", $name, $age, $email, $id);
 		mysqli_stmt_execute($stmt);
+		mysqli_stmt_free_result($stmt);
+		mysqli_stmt_close($stmt);
 
 		// redirectig to the display page. In our case, it is index.php
 		header("Location: index.php");
@@ -43,6 +45,9 @@ mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_bind_result($stmt, $name, $age, $email);
 mysqli_stmt_fetch($stmt);
+mysqli_stmt_free_result($stmt);
+mysqli_stmt_close($stmt);
+mysqli_close($mysli);
 ?>
 
 <!DOCTYPE html>
