@@ -2,18 +2,14 @@
 // including the database connection file
 include_once("config.php");
 
-if(isset($_POST['update']))
-{	
-
+if(isset($_POST['update'])) {
 	$id = mysqli_real_escape_string($mysqli, $_POST['id']);
-	
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);	
 	
 	// checking empty fields
 	if(empty($name) || empty($age) || empty($email)) {	
-			
 		if(empty($name)) {
 			echo "<font color='red'>Name field is empty.</font><br/>";
 		}
@@ -26,23 +22,27 @@ if(isset($_POST['update']))
 			echo "<font color='red'>Email field is empty.</font><br/>";
 		}		
 	} else {	
-		//updating the table
-		$result = mysqli_query($mysqli, "UPDATE users SET name='$name',age='$age',email='$email' WHERE id=$id");
-		
-		//redirectig to the display page. In our case, it is index.php
+		// updating the table
+		$stmt = mysqli_prepare($mysqli, "UPDATE users SET name=?,age=?,email=? WHERE id=?");
+		mysqli_stmt_bind_param($stmt, "sisi", $name, $age, $email, $id);
+		mysqli_stmt_execute($stmt);
+
+		// redirectig to the display page. In our case, it is index.php
 		header("Location: index.php");
 	}
 }
 ?>
+
 <?php
-//getting id from url
+// getting id from url
 $id = $_GET['id'];
 
-//selecting data associated with this particular id
-$result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
+// selecting data associated with this particular id
+$stmt = mysqli_prepare($mysqli, "SELECT * FROM users WHERE id=?");
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
 
-while($res = mysqli_fetch_array($result))
-{
+while($res = mysqli_fetch_array($result)) {
 	$name = $res['name'];
 	$age = $res['age'];
 	$email = $res['email'];

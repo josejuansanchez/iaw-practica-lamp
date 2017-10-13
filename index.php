@@ -1,11 +1,10 @@
 <?php
-//including the database connection file
+// including the database connection file
 include_once("config.php");
 
-//fetching data in descending order (lastest entry first)
+// fetching data in descending order (lastest entry first)
 $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +15,6 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 
 <body>
 <a href="add.html">Add New Data</a><br/><br/>
-
 	<table width='80%' border=0>
 
 	<tr bgcolor='#CCCCCC'>
