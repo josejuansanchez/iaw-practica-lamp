@@ -11,11 +11,17 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 <head>
 	<meta charset="UTF-8">
 	<title>Homepage</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  crossorigin="anonymous">	
 </head>
 
 <body>
-<a href="add.html">Add New Data</a><br/><br/>
-	<table width='80%' border=0>
+<div class = "container">
+	<div class="jumbotron">
+      <h1 class="display-4">Simple LAMP web app</h1>
+      <p class="lead">Demo app</p>
+    </div>	
+	<a href="add.html" class="btn btn-primary">Add New Data</a><br/><br/>
+	<table width='80%' border=0 class="table">
 
 	<tr bgcolor='#CCCCCC'>
 		<td>Name</td>
@@ -34,8 +40,9 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 		echo "</tr>\n";
 	}
 
-	mysqli_close($msqli);
+	mysqli_close($mysqli);
 	?>
 	</table>
+</div>
 </body>
 </html>

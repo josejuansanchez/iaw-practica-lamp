@@ -47,7 +47,7 @@ mysqli_stmt_bind_result($stmt, $name, $age, $email);
 mysqli_stmt_fetch($stmt);
 mysqli_stmt_free_result($stmt);
 mysqli_stmt_close($stmt);
-mysqli_close($mysli);
+mysqli_close($mysqli);
 ?>
 
 <!DOCTYPE html>
@@ -55,31 +55,42 @@ mysqli_close($mysli);
 <head>
 	<meta charset="UTF-8">
 	<title>Edit Data</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  crossorigin="anonymous">
 </head>
 
 <body>
-	<a href="index.php">Home</a>
+<div class = "container">
+	<div class="jumbotron">
+		<h1 class="display-4">Simple LAMP web app</h1>
+		<p class="lead">Demo app</p>
+	</div>
+
+	<a href="index.php" class="btn btn-primary">Home</a>
 	<br/><br/>
 
 	<form name="form1" method="post" action="edit.php">
-		<table border="0">
-			<tr>
-				<td>Name</td>
-				<td><input type="text" name="name" value="<?php echo $name;?>"></td>
-			</tr>
-			<tr>
-				<td>Age</td>
-				<td><input type="text" name="age" value="<?php echo $age;?>"></td>
-			</tr>
-			<tr>
-				<td>Email</td>
-				<td><input type="text" name="email" value="<?php echo $email;?>"></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
-				<td><input type="submit" name="update" value="Update"></td>
-			</tr>
-		</table>
+
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" class="form-control" name="name" value="<?php echo $name;?>">
+		</div>
+
+		<div class="form-group">
+			<label for="name">Age</label>
+			<input type="text" class="form-control" name="age" value="<?php echo $age;?>">
+		</div>
+
+		<div class="form-group">
+			<label for="name">Email</label>
+			<input type="text" class="form-control" name="email" value="<?php echo $email;?>">
+		</div>
+
+		<div class="form-group">
+			<input type="hidden" name="id" value=<?php echo $_GET['id'];?>>
+			<input type="submit" name="update" value="Update" class="form-control" >
+		</div>
+
 	</form>
+</div>
 </body>
 </html>

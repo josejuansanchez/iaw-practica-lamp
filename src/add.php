@@ -3,9 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Add Data</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  crossorigin="anonymous">
 </head>
 
 <body>
+<div class = "container">
+	<div class="jumbotron">
+		<h1 class="display-4">Simple LAMP web app</h1>
+		<p class="lead">Demo app</p>
+	</div>
+
 
 <?php
 // including the database connection file
@@ -19,19 +26,19 @@ if(isset($_POST['Submit'])) {
 	// checking empty fields
 	if(empty($name) || empty($age) || empty($email)) {
 		if(empty($name)) {
-			echo "<font color='red'>Name field is empty.</font><br/>";
+			echo "<div class='alert alert-danger' role='alert'>Name field is empty</div>";
 		}
 
 		if(empty($age)) {
-			echo "<font color='red'>Age field is empty.</font><br/>";
+			echo "<div class='alert alert-danger' role='alert'>Age field is empty</div>";
 		}
 
 		if(empty($email)) {
-			echo "<font color='red'>Email field is empty.</font><br/>";
+			echo "<div class='alert alert-danger' role='alert'>Email field is empty</div>";
 		}
 
 		// link to the previous page
-		echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+		echo "<a href='javascript:self.history.back();' class='btn btn-primary'>Go Back</a>";
 	} else {
 		// if all the fields are filled (not empty)
 
@@ -43,14 +50,14 @@ if(isset($_POST['Submit'])) {
 		mysqli_stmt_close($stmt);
 
 		// display success message
-		echo "<font color='green'>Data added successfully.";
-		echo "<br/><a href='index.php'>View Result</a>";
+		echo "<div class='alert alert-success' role='alert'>Data added successfully</div>";
+		echo "<a href='index.php' class='btn btn-primary'>View Result</a>";
 	}
 }
 
 mysqli_close($mysqli);
 
 ?>
-
+</div>
 </body>
 </html>

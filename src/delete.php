@@ -15,4 +15,3 @@ mysqli_close($mysqli);
 // redirecting to the display page (index.php in our case)
 header("Location:index.php");
 ?>
-
